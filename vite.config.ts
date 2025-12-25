@@ -8,7 +8,8 @@ export default defineConfig({
     host: "::", // allows IPv6 & local network access
     port: 8080,
   },
-  plugins: [react()],
+  plugins: [react()],  
+  base: '/nexus-three/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),

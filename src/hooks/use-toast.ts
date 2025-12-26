@@ -5,6 +5,12 @@ import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;
 
+
+
+//update this toast hoot to get a attribute life which means how long the toast will be visible before being removed automatically
+
+ 
+
 type ToasterToast = ToastProps & {
   id: string;
   title?: React.ReactNode;

@@ -50,15 +50,27 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
 
-    toast({
+    if (res.ok) {
+      toast({
       title: "Message sent!",
       description: "We'll get back to you as soon as possible.",
     });
+      setFormData({ name: "", email: "", company: "", service: "", message: "" });
+    } else {
+      toast({
+      title: "Failed!",
+      description: "Your message has not been sent. Please try again later.",
+    });
+    }
 
-    setFormData({ name: "", email: "", company: "", service: "", message: "" });
+    
+
     setIsSubmitting(false);
   };
 

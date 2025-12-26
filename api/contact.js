@@ -15,14 +15,14 @@ export default async function handler(req, res) {
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
-                user: import.meta.env.VITE_GMAIL_USER,
-                pass: import.meta.env.VITE_GMAIL_PASS,
+                user: process.env.GMAIL_USER,
+                pass: process.env.GMAIL_PASS,
             },
         });
 
         await transporter.sendMail({
-            from: `"Contact Form" <${import.meta.env.VITE_GMAIL_USER}>`,
-            to: import.meta.env.VITE_GMAIL_USER,
+            from: `"Contact Form" <${process.env.GMAIL_USER}>`,
+            to: process.env.GMAIL_USER,
             replyTo: email,
             subject: `New Contact Form Message from ${name}`,
             text: `

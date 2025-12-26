@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     }
 
     const receivers = process.env.GMAIL_RECEIVER.split(',').map(e => e.trim());
-
+ 
     try {
         const transporter = nodemailer.createTransport({
             service: "gmail",

@@ -10,6 +10,8 @@ import ServiceDetail from "./pages/ServiceDetail";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import ScrollSmooth from "./components/ScrollSmooth";
+import MouseFollower from "./components/MouseFollower";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +20,9 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <MouseFollower />
       <BrowserRouter basename="/nexus-three/">
+        <ScrollSmooth />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />

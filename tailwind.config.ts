@@ -20,7 +20,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Playfair Display", "Georgia", "serif"],
+        display: ["Sora", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -57,8 +57,8 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         nexus: {
-          olive: "hsl(var(--nexus-olive))",
-          lime: "hsl(var(--nexus-lime))",
+          blue: "hsl(var(--nexus-blue))",
+          cyan: "hsl(var(--nexus-cyan))",
           dark: "hsl(var(--nexus-dark))",
         },
         sidebar: {

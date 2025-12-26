@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
-import nexusLogo from "@/assets/nexus-logo.png";
+import nexusLogo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

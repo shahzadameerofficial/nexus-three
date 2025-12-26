@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import nexusLogo from "@/assets/nexus-logo.png";
+import nexusLogo from "@/assets/logo.png";
 
 const navLinks = [
   { name: "Home", path: "/" },

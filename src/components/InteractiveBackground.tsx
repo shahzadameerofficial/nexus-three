@@ -22,7 +22,7 @@ const InteractiveBackground = () => {
     if (!container) return;
 
     const rect = container.getBoundingClientRect();
-    const particleCount = 50;
+    const particleCount = 40;
     const initialParticles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
@@ -30,10 +30,10 @@ const InteractiveBackground = () => {
         id: i,
         x: Math.random() * rect.width,
         y: Math.random() * rect.height,
-        size: Math.random() * 4 + 1,
-        speedX: (Math.random() - 0.5) * 0.5,
-        speedY: (Math.random() - 0.5) * 0.5,
-        opacity: Math.random() * 0.5 + 0.1,
+        size: Math.random() * 3 + 1,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.4 + 0.1,
       });
     }
 
@@ -103,33 +103,39 @@ const InteractiveBackground = () => {
 
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden">
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-gradient-accent opacity-10 blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 -right-20 w-80 h-80 rounded-full bg-gradient-accent opacity-15 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+      {/* Subtle gradient orbs - navy/gold tones */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-gradient-to-br from-nexus-gold/15 to-nexus-gold-light/10 blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 -right-20 w-80 h-80 rounded-full bg-gradient-to-br from-nexus-navy/15 to-nexus-navy-light/10 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+      <div className="absolute top-3/4 left-1/3 w-64 h-64 rounded-full bg-gradient-to-br from-nexus-gold/10 to-transparent blur-3xl animate-float" style={{ animationDelay: "4s" }} />
       
-      {/* Grid pattern */}
+      {/* Refined grid pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage: `linear-gradient(hsl(var(--accent)) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(var(--accent)) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
+          backgroundImage: `linear-gradient(hsl(var(--nexus-navy)) 1px, transparent 1px),
+                           linear-gradient(90deg, hsl(var(--nexus-navy)) 1px, transparent 1px)`,
+          backgroundSize: '80px 80px',
         }}
       />
 
-      {/* Animated circles */}
+      {/* Elegant concentric circles */}
       <motion.div
         animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-accent/10"
+        transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full border border-nexus-navy/10"
       />
       <motion.div
         animate={{ rotate: -360 }}
-        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-accent/5"
+        transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-nexus-gold/15"
+      />
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-nexus-navy/8"
       />
 
-      {/* Particles */}
+      {/* Particles with improved visibility */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none">
         {particles.map((particle) => (
           <circle
@@ -137,11 +143,11 @@ const InteractiveBackground = () => {
             cx={particle.x}
             cy={particle.y}
             r={particle.size}
-            fill="hsl(var(--accent))"
-            opacity={particle.opacity}
+            fill="hsl(40 75% 50%)"
+            opacity={particle.opacity + 0.3}
           />
         ))}
-        {/* Connection lines */}
+        {/* Connection lines - more visible */}
         {particles.map((particle, i) =>
           particles.slice(i + 1).map((other) => {
             const distance = Math.sqrt(
@@ -155,9 +161,9 @@ const InteractiveBackground = () => {
                   y1={particle.y}
                   x2={other.x}
                   y2={other.y}
-                  stroke="hsl(var(--accent))"
+                  stroke="hsl(222 47% 20%)"
                   strokeOpacity={(1 - distance / 120) * 0.15}
-                  strokeWidth={0.5}
+                  strokeWidth={0.8}
                 />
               );
             }

@@ -12,20 +12,20 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    content: "hello@nexusthree.com",
-    href: "mailto:hello@nexusthree.com",
+    content: import.meta.env.VITE_EMAIL,
+    href: `mailto:${import.meta.env.VITE_EMAIL}`,
   },
   {
     icon: Phone,
     title: "Call Us",
-    content: "+1 (234) 567-890",
-    href: "tel:+1234567890",
+    content: import.meta.env.VITE_PHONE,
+    href: `tel:${import.meta.env.VITE_PHONE}`,
   },
   {
     icon: MapPin,
     title: "Visit Us",
-    content: "123 Innovation Drive, Tech City, TC 10001",
-    href: "#",
+    content: import.meta.env.VITE_ADDRESS,
+    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(import.meta.env.VITE_ADDRESS)}`,
   },
   {
     icon: Clock,
@@ -68,9 +68,6 @@ const Contact = () => {
       description: "Your message has not been sent. Please try again later.",
     });
     }
-
-    
-
     setIsSubmitting(false);
   };
 

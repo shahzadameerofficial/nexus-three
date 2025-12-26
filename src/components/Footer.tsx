@@ -21,10 +21,10 @@ const Footer = () => {
   ];
 
   const socials = [
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Linkedin, href: `${import.meta.env.VITE_LINKEDIN}`, label: "LinkedIn" },
+    { icon: Twitter, href: `${import.meta.env.VITE_TWITTER}`, label: "Twitter" },
+    { icon: Instagram, href: `${import.meta.env.VITE_INSTAGRAM}`, label: "Instagram" },
+    { icon: Facebook, href: `${import.meta.env.VITE_FACEBOOK}`, label: "Facebook" },
   ];
 
   return (
@@ -94,19 +94,19 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-accent mt-1 flex-shrink-0" />
                 <span className="text-background/60 text-sm">
-                  123 Innovation Drive, Tech City, TC 10001
+                  {import.meta.env.VITE_ADDRESS}
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-accent flex-shrink-0" />
-                <a href="mailto:hello@nexusthree.com" className="text-background/60 hover:text-background text-sm">
-                  hello@nexusthree.com
+                <a href={`mailto:${import.meta.env.VITE_EMAIL}`} className="text-background/60 hover:text-background text-sm">
+                  {import.meta.env.VITE_EMAIL}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-accent flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-background/60 hover:text-background text-sm">
-                  +1 (234) 567-890
+                <a href={`tel:${import.meta.env.VITE_PHONE}`} className="text-background/60 hover:text-background text-sm">
+                  {import.meta.env.VITE_PHONE}
                 </a>
               </li>
             </ul>

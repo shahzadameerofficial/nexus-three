@@ -40,7 +40,7 @@ const Header = () => {
     >
       <div className="container-custom flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2 outline-0">
           <img src={nexusLogo} alt="Nexus Three" className="h-10 md:h-12" />
         </Link>
 

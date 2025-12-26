@@ -21,7 +21,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <MouseFollower />
-      <BrowserRouter basename="/nexus-three/">
+      <BrowserRouter>
         <ScrollSmooth />
         <Routes>
           <Route path="/" element={<Index />} />

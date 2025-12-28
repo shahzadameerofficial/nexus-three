@@ -2,39 +2,12 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const projects = [
-  {
-    id: 1,
-    title: "E-Commerce Revolution",
-    category: "Web Development",
-    image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&q=80",
-    description: "Complete e-commerce platform with advanced features",
-  },
-  {
-    id: 2,
-    title: "Brand Identity Refresh",
-    category: "UI/UX Design",
-    image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&q=80",
-    description: "Modern brand identity for a tech startup",
-  },
-  {
-    id: 3,
-    title: "Growth Marketing Campaign",
-    category: "Digital Marketing",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    description: "360° digital marketing strategy",
-  },
-  {
-    id: 4,
-    title: "Amazon Store Launch",
-    category: "Amazon Services",
-    image: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=800&q=80",
-    description: "Successful Amazon storefront setup",
-  },
-];
+import { projects } from "@/data/projects";
 
 const ProjectsSection = () => {
+  // Show featured projects (up to 4)
+  const featuredProjects = projects.slice(0, 4);
+
   return (
     <section className="section-padding bg-background">
       <div className="container-custom">
@@ -62,7 +35,7 @@ const ProjectsSection = () => {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
@@ -91,7 +64,7 @@ const ProjectsSection = () => {
                     {project.title}
                   </h3>
                   <p className="text-white/70 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {project.description}
+                    {project.shortDescription}
                   </p>
                 </div>
 

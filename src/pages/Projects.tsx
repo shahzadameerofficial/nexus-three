@@ -4,59 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const projects = [
-  {
-    id: 1,
-    title: "E-Commerce Revolution",
-    category: "Web Development",
-    client: "TechVision",
-    image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&q=80",
-    description: "Complete e-commerce platform with advanced features and seamless checkout experience.",
-  },
-  {
-    id: 2,
-    title: "Brand Identity Refresh",
-    category: "UI/UX Design",
-    client: "CloudNine",
-    image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&q=80",
-    description: "Modern brand identity redesign for a fast-growing tech startup.",
-  },
-  {
-    id: 3,
-    title: "Growth Marketing Campaign",
-    category: "Digital Marketing",
-    client: "DataFlow",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    description: "360° digital marketing strategy that doubled online revenue.",
-  },
-  {
-    id: 4,
-    title: "Amazon Store Launch",
-    category: "Amazon Services",
-    client: "GrowthHub",
-    image: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=800&q=80",
-    description: "Successful Amazon storefront setup with optimized listings.",
-  },
-  {
-    id: 5,
-    title: "SaaS Dashboard",
-    category: "Web Development",
-    client: "ScaleUp",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    description: "Intuitive analytics dashboard for a B2B SaaS platform.",
-  },
-  {
-    id: 6,
-    title: "Mobile App Design",
-    category: "UI/UX Design",
-    client: "FutureLabs",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
-    description: "User-centric mobile app design with stunning visuals.",
-  },
-];
-
-const categories = ["All", "Web Development", "UI/UX Design", "Digital Marketing", "Amazon Services"];
+import { projects } from "@/data/projects";
 
 const Projects = () => {
   return (
@@ -77,7 +25,7 @@ const Projects = () => {
                 Featured <span className="gradient-text">Projects</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Explore our portfolio of successful projects that have helped businesses transform and grow.
+                Explore our portfolio of successful projects that have helped businesses transform and grow through innovative technology solutions.
               </p>
             </motion.div>
           </div>
@@ -95,7 +43,10 @@ const Projects = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <div className="group block relative rounded-2xl overflow-hidden bg-background shadow-soft hover:shadow-card transition-all duration-300">
+                  <Link 
+                    to={`/projects/${project.id}`}
+                    className="group block relative rounded-2xl overflow-hidden bg-background shadow-soft hover:shadow-card transition-all duration-300"
+                  >
                     {/* Image */}
                     <div className="aspect-[4/3] overflow-hidden">
                       <img
@@ -108,8 +59,8 @@ const Projects = () => {
                     {/* Content */}
                     <div className="p-6">
                       <span className="text-sm text-accent font-medium">{project.category}</span>
-                      <h3 className="text-xl font-semibold mt-2 mb-2">{project.title}</h3>
-                      <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
+                      <h3 className="text-xl font-semibold mt-2 mb-2 line-clamp-2">{project.title}</h3>
+                      <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{project.shortDescription}</p>
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-muted-foreground">Client: {project.client}</span>
                         <div className="w-10 h-10 rounded-full gradient-nexus flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -117,7 +68,7 @@ const Projects = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>

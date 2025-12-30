@@ -7,6 +7,7 @@ import atsPoster from "@/assets/projects/ats-poster.png";
 import researchDecodePoster from "@/assets/projects/research-decode-poster.png";
 import showbizhubPoster from "@/assets/projects/showbizhub-poster.png";
 import firstBizAdvisoryPoster from "@/assets/projects/first-biz-advisory-poster.png";
+import nymoDentalPoster from "@/assets/projects/nymo-dental-poster.png";
 
 // Phoenix Rewards Screenshots
 import phoenixRewards1 from "@/assets/projects/phoenix-rewards-1.png";
@@ -38,6 +39,14 @@ import ats4 from "@/assets/projects/ats-4.png";
 // Research Decode Screenshots
 import researchDecode1 from "@/assets/projects/research-decode-1.png";
 import researchDecode2 from "@/assets/projects/research-decode-2.png";
+
+// Nymo Dental Screenshots
+import nymoDental1 from "@/assets/projects/nymo-dental-1.png";
+import nymoDental2 from "@/assets/projects/nymo-dental-2.png";
+import nymoDental3 from "@/assets/projects/nymo-dental-3.png";
+import nymoDental4 from "@/assets/projects/nymo-dental-4.png";
+import nymoDental5 from "@/assets/projects/nymo-dental-5.png";
+import nymoDental6 from "@/assets/projects/nymo-dental-6.png";
 
 export interface Project {
   id: string;
@@ -259,6 +268,31 @@ export const projects: Project[] = [
     ],
     challenge: "Creating a professional, community-focused website that effectively communicates the company's values, advisory services, and commitment to diversity while converting detailed Figma designs into a fully responsive WordPress site.",
     solution: "We developed a custom WordPress theme using Elementor, carefully translating the client's Figma designs into pixel-perfect web pages. The site features a strong visual identity with navy blue and green brand colors, compelling content sections highlighting community partnerships, and clear calls-to-action for potential clients and job seekers."
+  },
+  {
+    id: "nymo-dental",
+    title: "Nymo Dental – Professional Dental Practice Management Suite",
+    category: "Web Development",
+    client: "Nymo Technologies",
+    image: nymoDentalPoster,
+    screenshots: [nymoDental1, nymoDental2, nymoDental3, nymoDental4, nymoDental5, nymoDental6],
+    shortDescription: "Comprehensive dental practice management SaaS platform inspired by Dentally, featuring patient records, appointments, tooth charts, and NHS claims.",
+    fullDescription: "<p><strong>Nymo Dental</strong> is a comprehensive <em>dental practice management suite</em> inspired by industry-leading platforms like Dentally. Built as a multi-tenant SaaS solution, it empowers dental clinics, hospitals, and practices to manage their entire workflow from patient intake to treatment completion.</p><p>The platform features an interactive <em>dental chart</em> with tooth-by-tooth tracking, treatment planning, and clinical notes. Practitioners can manage appointments through an intuitive <strong>calendar interface</strong> with drag-and-drop scheduling, waiting room management, and real-time availability tracking across multiple practitioners.</p><p>With built-in support for <em>NHS FP17 claims submission</em>, UDA tracking, and comprehensive reporting, Nymo Dental streamlines compliance and administrative tasks. The system also includes patient records with <strong>family management</strong>, dental history, imaging integration, and secure payment processing for both NHS and private treatments.</p>",
+    technologies: ["Vue 3", "Laravel", "PHP", "SQLite", "TailwindCSS", "Custom Theme"],
+    features: [
+      "Interactive dental chart with tooth-by-tooth tracking",
+      "Appointment calendar with multi-practitioner support",
+      "Patient records and family management",
+      "NHS FP17 claims and UDA management",
+      "Treatment planning and clinical notes",
+      "Waiting room and patient flow management",
+      "Imaging and X-ray integration",
+      "Staff management and role-based access",
+      "Payment processing and invoicing",
+      "Comprehensive reporting and analytics"
+    ],
+    challenge: "Dental practices needed an all-in-one solution to replace fragmented systems for patient management, appointment scheduling, clinical charting, NHS claims processing, and practice administration—while ensuring HIPAA compliance and seamless multi-tenant support.",
+    solution: "We developed Nymo Dental using Laravel for a robust multi-tenant backend and Vue 3 with TailwindCSS for a modern, responsive interface. The platform features an interactive dental chart for treatment planning, a sophisticated appointment system with waiting room management, and integrated NHS claims processing with UDA tracking. The SaaS architecture supports clinics of all sizes with role-based access control and comprehensive reporting."
   }
 ];
 

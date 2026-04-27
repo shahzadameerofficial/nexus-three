@@ -1,0 +1,192 @@
+/* Google Fonts (works, but consider next/font in Next.js) */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   BASE LAYER
+========================= */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 30% 12%;
+
+    --card: 220 20% 98%;
+    --card-foreground: 222 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 30% 12%;
+
+    --primary: 222 47% 15%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 222 30% 20%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 40 75% 50%;
+    --accent-foreground: 222 47% 12%;
+
+    --nexus-navy: 222 47% 15%;
+    --nexus-navy-light: 222 35% 25%;
+    --nexus-gold: 40 75% 50%;
+    --nexus-gold-light: 43 90% 65%;
+    --nexus-dark: 222 47% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 40 75% 50%;
+
+    --radius: 0.5rem;
+
+    --shadow-soft: 0 4px 20px -2px hsl(222 30% 10% / 0.08);
+    --shadow-glow: 0 0 40px hsl(40 75% 50% / 0.25);
+    --shadow-card: 0 10px 40px -10px hsl(222 30% 10% / 0.1);
+    --shadow-gold: 0 4px 30px -4px hsl(40 75% 50% / 0.35);
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 40 20% 95%;
+
+    --card: 222 40% 10%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 222 45% 8%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 40 75% 55%;
+    --primary-foreground: 222 47% 8%;
+
+    --secondary: 222 35% 14%;
+    --secondary-foreground: 40 20% 90%;
+
+    --muted: 222 30% 16%;
+    --muted-foreground: 220 15% 55%;
+
+    --accent: 40 80% 55%;
+    --accent-foreground: 222 47% 8%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 40 80% 55%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Sora', system-ui, sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+
+  *::selection {
+    @apply bg-accent text-white;
+  }
+}
+
+/* =========================
+   UTILITIES
+========================= */
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(35 85% 45%), hsl(40 75% 50%), hsl(43 90% 60%));
+  }
+
+  .gradient-text-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(43 90% 65%), hsl(40 75% 50%));
+  }
+
+  .gradient-text-navy {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(222 47% 18%), hsl(222 35% 30%));
+  }
+
+  .gradient-nexus {
+    background: linear-gradient(135deg, hsl(40 75% 50%), hsl(43 90% 60%));
+  }
+
+  .gradient-navy {
+    background: linear-gradient(135deg, hsl(222 47% 15%), hsl(222 35% 25%));
+  }
+
+  .glass {
+    @apply bg-background/80 backdrop-blur-lg;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-24 px-4 md:px-8;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .card-professional {
+    @apply bg-card border border-border/50 transition-all duration-300;
+  }
+
+  .card-professional:hover {
+    @apply border-accent/30 shadow-card;
+    transform: translateY(-2px);
+  }
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(40 75% 50% / 0.2); }
+  50% { box-shadow: 0 0 40px hsl(40 75% 50% / 0.4); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}

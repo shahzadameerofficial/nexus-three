@@ -57,8 +57,10 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         nexus: {
-          blue: "hsl(var(--nexus-blue))",
-          cyan: "hsl(var(--nexus-cyan))",
+          navy: "hsl(var(--nexus-navy))",
+          "navy-light": "hsl(var(--nexus-navy-light))",
+          gold: "hsl(var(--nexus-gold))",
+          "gold-light": "hsl(var(--nexus-gold-light))",
           dark: "hsl(var(--nexus-dark))",
         },
         sidebar: {
@@ -71,6 +73,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      borderColor: {
+        border: "hsl(var(--border))",
       },
       borderRadius: {
         lg: "var(--radius)",
